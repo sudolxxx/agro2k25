@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2025 - Cuidando do Campo e do Meio Ambiente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4CAF50',
+                        secondary: '#8BC34A',
+                        accent: '#2196F3',
+                        dark: '#2E7D32',
+                        light: '#E8F5E9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Accessibility features */
+        .high-contrast {
+            filter: contrast(150%);
+        }
+        
+        .text-large {
+            font-size: 1.25rem;
+        }
+        
+        .text-xlarge {
+            font-size: 1.5rem;
+        }
+        
+        .color-blind-friendly {
+            filter: url('#protanopia');
+        }
+        
+        /* Animation for call to action */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-gray-800">
+    <!-- SVG filter for color blindness simulation -->
+    <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+        <filter id="protanopia">
+            <feColorMatrix type="matrix" values="0.567,0.433,0,0,0 0.558,0.442,0,0,0 0,0.242,0.758,0,0 0,0,0,1,0" />
+        </filter>
+    </svg>
+
+    <!-- Accessibility Toolbar -->
+    <div class="bg-primary text-white p-2 flex flex-wrap justify-center gap-2 items-center">
+        <button onclick="toggleContrast()" class="px-3 py-1 bg-white text-primary rounded flex items-center gap-1">
+            <i class="fas fa-adjust"></i> Alto Contraste
+        </button>
+        <button onclick="increaseFontSize()" class="px-3 py-1 bg-white text-primary rounded flex items-center gap-1">
+            <i class="fas fa-text-height"></i> Aumentar Fonte
+        </button>
+        <button onclick="decreaseFontSize()" class="px-3 py-1 bg-white text-primary rounded flex items-center gap-1">
+            <i class="fas fa-text-width"></i> Diminuir Fonte
+        </button>
+        <button onclick="toggleColorBlind()" class="px-3 py-1 bg-white text-primary rounded flex items-center gap-1">
+            <i class="fas fa-palette"></i> Modo Daltônico
+        </button>
+        <button onclick="speakPage()" class="px-3 py-1 bg-white text-primary rounded flex items-center gap-1">
+            <i class="fas fa-volume-up"></i> Ler Conteúdo
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#home" class="text-2xl font-bold text-primary flex items-center">
+                    <i class="fas fa-leaf mr-2"></i> Agrinho 2025
+                </a>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-primary hover:text-dark font-medium">Início</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary font-medium">Sobre</a>
+                    <a href="#actions" class="text-gray-600 hover:text-primary font-medium">Ações</a>
+                    <a href="#gallery" class="text-gray-600 hover:text-primary font-medium">Galeria</a>
+                    <a href="#tips" class="text-gray-600 hover:text-primary font-medium">Dicas</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary font-medium">Contato</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-primary font-medium">Início</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-primary">Sobre</a>
+                <a href="#actions" class="block py-2 text-gray-600 hover:text-primary">Ações</a>
+                <a href="#gallery" class="block py-2 text-gray-600 hover:text-primary">Galeria</a>
+                <a href="#tips" class="block py-2 text-gray-600 hover:text-primary">Dicas</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-primary">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image min-h-[70vh] flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4 py-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Agrinho 2025</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-8">Cuidando do Campo e do Meio Ambiente</h2>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
+                Um projeto educacional que promove a sustentabilidade no campo através da conscientização ambiental e práticas ecológicas.
+            </p>
+            <a href="#about" class="bg-primary hover:bg-dark text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-flex items-center pulse-animation">
+                Saiba mais <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Sobre o Projeto</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1633&q=80" 
+                         alt="Alunos participando de atividades do projeto Agrinho" 
+                         class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-4">
+                        O <strong>Agrinho 2025</strong> é um programa educacional desenvolvido para conscientizar estudantes sobre a importância da sustentabilidade no campo e da preservação ambiental.
+                    </p>
+                    <p class="text-lg mb-4">
+                        Através de atividades práticas e teóricas, os alunos aprendem sobre ecossistemas, agricultura sustentável e como suas ações podem impactar positivamente o meio ambiente.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Nossa escola participa ativamente deste projeto, envolvendo alunos de todas as séries em ações que promovem a cidadania ambiental e o desenvolvimento sustentável da nossa região.
+                    </p>
+                    <div class="bg-light p-4 rounded-lg border-l-4 border-primary">
+                        <h3 class="font-bold text-primary text-xl mb-2">Objetivos do Projeto:</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Promover a educação ambiental nas escolas</li>
+                            <li>Conscientizar sobre práticas agrícolas sustentáveis</li>
+                            <li>Envolver a comunidade escolar em ações ecológicas</li>
+                            <li>Desenvolver cidadãos conscientes de seu papel na preservação ambiental</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainable Actions Section -->
+    <section id="actions" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Ações Sustentáveis</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Action 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-green-100 flex items-center justify-center text-6xl text-primary">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Plantio de Árvores</h3>
+                        <p class="text-gray-700">
+                            Organizamos mutirões para plantar árvores nativas em áreas degradadas, recuperando ecossistemas locais e aumentando a biodiversidade.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center text-6xl text-accent">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Economia de Água</h3>
+                        <p class="text-gray-700">
+                            Implementamos sistemas de captação de água da chuva e conscientizamos sobre o uso racional deste recurso essencial.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center text-6xl text-yellow-600">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Reciclagem</h3>
+                        <p class="text-gray-700">
+                            Criamos pontos de coleta seletiva na escola e ensinamos sobre a importância da separação correta dos resíduos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-red-100 flex items-center justify-center text-6xl text-red-500">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Proteção Animal</h3>
+                        <p class="text-gray-700">
+                            Desenvolvemos abrigos para animais silvestres e campanhas contra o tráfico de animais e maus-tratos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-brown-100 flex items-center justify-center text-6xl text-brown-600">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Cuidados com o Solo</h3>
+                        <p class="text-gray-700">
+                            Ensinamos técnicas de agricultura sustentável que preservam a qualidade do solo, como rotação de culturas e adubação verde.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Action 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center text-6xl text-purple-500">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Educação Ambiental</h3>
+                        <p class="text-gray-700">
+                            Realizamos palestras, oficinas e atividades práticas que ensinam sobre ecologia, sustentabilidade e preservação.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Galeria de Fotos</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Photo 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Alunos plantando mudas de árvores em área verde" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Plantio de mudas nativas - Abril 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Estudantes aprendendo sobre compostagem na horta escolar" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Oficina de compostagem - Março 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Feira de ciências com projetos sobre sustentabilidade" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Feira de Ciências Ambientais - Maio 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" 
+                         alt="Alunos limpando córrego próximo à escola" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Limpeza de córrego - Junho 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Horta orgânica cultivada pelos alunos" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Horta escolar orgânica - Julho 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Alunos apresentando trabalhos sobre reciclagem" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Mostra de trabalhos reciclados - Agosto 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Visita técnica a propriedade rural sustentável" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Visita técnica - Setembro 2025</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1422&q=80" 
+                         alt="Entrega de certificados de participação no projeto" 
+                         class="w-full h-48 object-cover cursor-pointer" 
+                         onclick="openModal(this)">
+                    <div class="p-3 bg-light">
+                        <p class="text-sm text-gray-700">Cerimônia de encerramento - Novembro 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal for gallery images -->
+        <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+            <div class="relative max-w-4xl w-full p-4">
+                <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-3xl hover:text-primary focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img id="modalImage" class="w-full max-h-screen object-contain" src="" alt="">
+                <p id="modalCaption" class="text-white text-center mt-2"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Dicas para um Campo Sustentável</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Tip 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-compost text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Compostagem</h3>
+                        <p class="text-gray-700">
+                            Transforme resíduos orgânicos em adubo natural. A compostagem reduz o lixo, melhora o solo e diminui a necessidade de fertilizantes químicos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tip 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-spray-can text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Redução de Agrotóxicos</h3>
+                        <p class="text-gray-700">
+                            Utilize controle biológico de pragas e rotação de culturas para diminuir a dependência de agrotóxicos, preservando a saúde do solo e dos consumidores.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tip 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-recycle text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Reutilização de Materiais</h3>
+                        <p class="text-gray-700">
+                            Transforme materiais que seriam descartados em ferramentas úteis para a propriedade, como cercas, vasos ou abrigos para animais.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tip 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Economia de Energia</h3>
+                        <p class="text-gray-700">
+                            Utilize energia solar para bombear água e iluminar instalações. Aproveite a ventilação natural em galpões para reduzir o uso de ventiladores.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tip 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-tint text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Manejo da Água</h3>
+                        <p class="text-gray-700">
+                            Implemente sistemas de irrigação por gotejamento, captação de água da chuva e reuso de água sempre que possível para preservar este recurso vital.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tip 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
+                    <div class="bg-primary text-white rounded-full p-3 mr-4">
+                        <i class="fas fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Educação Ambiental</h3>
+                        <p class="text-gray-700">
+                            Promova treinamentos para trabalhadores rurais e familiares sobre práticas sustentáveis. O conhecimento é a base da mudança.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-primary mb-4 text-center">Como Implementar na Sua Propriedade</h3>
+                <div class="flex flex-col md:flex-row gap-6 items-center">
+                    <div class="md:w-1/3">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Propriedade rural sustentável" 
+                             class="rounded-lg w-full">
+                    </div>
+                    <div class="md:w-2/3">
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li class="font-medium">Comece com pequenas mudanças em uma área da propriedade</li>
+                            <li class="font-medium">Monitore os resultados e ajuste as práticas conforme necessário</li>
+                            <li class="font-medium">Envolva toda a família e trabalhadores no processo</li>
+                            <li class="font-medium">Busque orientação técnica de agrônomos e extensionistas</li>
+                            <li class="font-medium">Compartilhe experiências com outros produtores</li>
+                            <li class="font-medium">Documente os benefícios ambientais e econômicos alcançados</li>
+                        </ol>
+                        <p class="mt-4 text-gray-700">
+                            A transição para uma propriedade sustentável é gradual, mas os benefícios a longo prazo para o meio ambiente e para a viabilidade econômica da produção são inquestionáveis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Entre em Contato</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="bg-light p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Quer saber mais sobre o projeto?</h3>
+                        <p class="text-lg mb-6">
+                            Estamos abertos para compartilhar nossas experiências e ajudar outras escolas e comunidades a implementarem projetos similares. Entre em contato conosco!
+                        </p>
+                        
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-1">Nome</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-1">E-mail</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-1">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required 
+                                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-dark text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-primary text-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold mb-6">Informações Adicionais</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Localização</h4>
+                                    <p>Escola Municipal Rural, Zona Rural, Cidade - Estado</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">E-mail</h4>
+                                    <p>contato@agrinho2025.edu.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Telefone</h4>
+                                    <p>(XX) XXXX-XXXX</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Horário de Atendimento</h4>
+                                    <p>Segunda a Sexta, das 8h às 17h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-lg mb-4">Siga-nos nas Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-lg max-w-md text-center">
+            <div class="text-green-500 text-6xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-primary mb-2">Mensagem Enviada!</h3>
+            <p class="text-gray-700 mb-6">Obrigado pelo seu contato. Retornaremos em breve.</p>
+            <button onclick="closeSuccessModal()" class="bg-primary hover:bg-dark text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-leaf mr-2"></i> Agrinho 2025
+                    </h3>
+                    <p class="mt-1">Cuidando do Campo e do Meio Ambiente</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-primary transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="hover:text-primary transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-primary transition duration-300">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center">
+                <p>&copy; 2025 Projeto Escolar - Agrinho 2025 | Desenvolvido por Johnny Gil Melchiades</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:bg-green-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Gallery modal functionality
+        function openModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('modalCaption');
+            
+            modal.classList.remove('hidden');
+            modalImg.src = element.src;
+            captionText.innerHTML = element.alt;
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show the success modal
+            successModal.classList.remove('hidden');
+            contactForm.reset();
+        });
+        
+        function closeSuccessModal() {
+            successModal.classList.add('hidden');
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Accessibility functions
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+        
+        function increaseFontSize() {
+            document.body.classList.add('text-large');
+            document.body.classList.remove('text-xlarge');
+        }
+        
+        function decreaseFontSize() {
+            document.body.classList.remove('text-large');
+            document.body.classList.remove('text-xlarge');
+        }
+        
+        function toggleColorBlind() {
+            document.body.classList.toggle('color-blind-friendly');
+        }
+        
+        function speakPage() {
+            if ('speechSynthesis' in window) {
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = document.body.innerText;
+                speech.lang = 'pt-BR';
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert('Seu navegador não suporta leitura de texto. Tente usar Chrome ou Edge.');
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Skip to main content
+            if (e.key === '1' && e.altKey) {
+                e.preventDefault();
+                document.getElementById('home').focus();
+            }
+            
+            // Skip to navigation
+            if (e.key === '2' && e.altKey) {
+                e.preventDefault();
+                document.querySelector('nav a').focus();
+            }
+            
+            // Skip to footer
+            if (e.key === '3' && e.altKey) {
+                e.preventDefault();
+                document.querySelector('footer').focus();
+            }
+        });
+    </script>
+</body>
+</html>
